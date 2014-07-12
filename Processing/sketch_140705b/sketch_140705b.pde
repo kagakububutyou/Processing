@@ -16,6 +16,10 @@ class Mover{
 }
 
 Mover mover;
+float px;
+float py;
+float x1;
+float y1;
 
 void setup(){
   size(500, 500);
@@ -33,9 +37,14 @@ void draw(){
 //  マウスが押された時
 void mousePressed(){
   println("mousePressed");
-  
-  //mover.x = mouseX;
-  //mover.y = mouseY;
+  if(mover.x - mover.r < mouseX && mover.x + mover.r > mouseX
+  && mover.y - mover.r < mouseY && mover.y + mover.r > mouseY)
+  {
+    px = mouseX;
+    py = mouseY;
+    x1 = mover.x;
+    y1 = mover.y;
+  }
 }
 //  マウスが押されている間
 void mouseDragged(){
@@ -43,8 +52,11 @@ void mouseDragged(){
   if(mover.x - mover.r < mouseX && mover.x + mover.r > mouseX
   && mover.y - mover.r < mouseY && mover.y + mover.r > mouseY)
   {
-    mover.x = mouseX;
-    mover.y = mouseY;
+    float x = mouseX - px;
+    float y = mouseY - py;
+    
+    mover.x = x1 + x;
+    mover.y = y1 + y;
   }
 }
 //  マウスが離された時
