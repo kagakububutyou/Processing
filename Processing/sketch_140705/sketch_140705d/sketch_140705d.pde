@@ -3,7 +3,7 @@ float x, y, z;
 void setup(){
  size(500, 500);
  
- z = 50;
+ z = 10;
  
  x = width / z;
  y = height / z;
