@@ -6,7 +6,7 @@ class Mover{
     x = width / 2;
     y = height / 2;
     r = 200;//random(10, 100);
-    c = color(random(10,255), 255, 255);
+    c = color(0, 0, 255);
   }
   
   void draw(){
@@ -16,7 +16,6 @@ class Mover{
 }
 
 Mover mover;
-Mover mover2;
 
 float px;
 float py;
@@ -27,51 +26,45 @@ void setup(){
   size(500, 500);
   colorMode(HSB);
   mover = new Mover();
-  mover2 =  new Mover();
   
 }
 
 void draw(){
-  background(100, 255, 255);
+  background(0, 0, 0);
   mover.draw();
   
   float x, y, r1;  
   x = mouseX;
   y = mouseY;
   r1 = 20;
-  ellipse(x, y, 2*r1, 2* r1);
+  fill(255,255,255);
+  
   float dx = mouseX - mover.x;
   float dy = mouseY - mover.y;
-  
   float d = sqrt(dx*dx+dy*dy);
   
-  if(mover.r < d+r1) stroke(0,255, 255);
+  float px, py;
+  
+  px = mouseX;
+  py = mouseY;
+  
+  if(mover.r < d+r1){
+    //  外側
+    stroke(255/3,255, 255);
+    
+   px = ((d-r1) - mover.r);
+   py = ((d-r1) - mover.r);
+   
+   //px = (mouseX - mover.r);
+   //py = (mouseY - mover.r);
+    
+  }
   else{ 
-    stroke(100,255, 255);
+    //  内側
+    stroke(500/3,255, 255);
   }
   
-  
-  line(mover.x, mover.y,mouseX, mouseY);
-  
-  if(mover.x - mover.r < mouseX && mover.x + mover.r > mouseX
-  && mover.y - mover.r < mouseY && mover.y + mover.r > mouseY)
-  {
-    mover2.x = mouseX;
-    mover2.y = mouseY;
-  }
-}
-//  マウスが押された時
-void mousePressed(){
-  println("mousePressed");
-}
-//  マウスが押されている間
-void mouseDragged(){
-  println("mouseDragged");
-}
-//  マウスが離された時
-void mouseReleased(){
-  println("mouseReleased");
-  //mover.x = mouseX;
-  //mover.y = mouseY;
+  line(mover.x, mover.y,px, py);
+  ellipse(x, y, 2*r1, 2* r1);
 }
 
