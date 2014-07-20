@@ -5,7 +5,7 @@ class Mover{
   Mover(){
     x = width / 2;
     y = height / 2;
-    r = 200;//random(10, 100);
+    r = 200;
     c = color(0, 0, 255);
   }
   
