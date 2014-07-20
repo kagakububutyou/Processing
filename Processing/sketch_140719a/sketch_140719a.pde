@@ -48,10 +48,10 @@ void draw(){
   
   if(mover.r < d+r1){
     /*
-    mover.r:d = x2 - mover.x:(mouseX - mover.x);
-    x2 - mover.x:(mouseX - mover.x) = mover.r:d;
-    (x2 - mover.r) * d = mover.r*(mouseX - mover.x);
-    x2 - mover.x = (mover.r * mouseX -mover.x) / d;
+    (mover.r - r1):d = x2 - mover.x:(mouseX - mover.x);
+    x2 - mover.x:(mouseX - mover.x) = (mover.r - r1):d;
+    (x2 - mover.r) * d = (mover.r - r1)*(mouseX - mover.x);
+    x2 - mover.x = ((mover.r - r1) * mouseX -mover.x) / d;
     */
     x2 = ((mover.r - r1) * (mouseX - mover.x))/d + mover.x;
     y2 = ((mover.r - r1) * (mouseY - mover.y))/d + mover.y;
