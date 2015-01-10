@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Bit Adding</title>
+<style>
+body{
+	background: yellow;
+}
+span{
+	color: purple;
+	font-size: 300%;
+}
+#result{
+	font-size: 500%;
+}
+</style>
+足し算<span id="a"></span> + <span id="b"></span> = <span id="result">
+<script>
+function add(a,b){
+	return a^b; // '+'を使わずに描き直そう
+}
+var a = 1;
+var b = 2;
+document.write(a+b)
+document.getElementById('a').innerHTML = a;	
+document.getElementById('b').innerHTML = b;
+document.getElementById('result').innerHTML = add(a,b);
+</script>
